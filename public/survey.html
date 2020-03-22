@@ -10,8 +10,9 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -36,8 +37,8 @@
     Your mind is always buzzing with unexplored ideas and plans.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q1">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -51,8 +52,8 @@
     Generally speaking, you rely more on your experience than your imagination.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q2">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -66,8 +67,9 @@
     You find it easy to stay relaxed and focused even when there is some pressure.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <option value = "" disabled selected>Select an Option</option>
+            <select class = "form-control" id = "q3">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -81,8 +83,8 @@
     You rarely do something just out of sheer curiosity.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q4">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -96,8 +98,8 @@
     People can rarely upset you.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q5">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -111,8 +113,8 @@
     It is often difficult for you to relate to other people’s feelings.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q6">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -126,8 +128,8 @@
     In a discussion, truth should be more important than people’s sensitivities.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q7">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -141,8 +143,8 @@
     You rarely get carried away by fantasies and ideas.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q8">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -156,8 +158,8 @@
     You think that everyone’s views should be respected regardless of whether they are supported by facts or not.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q9">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -171,8 +173,8 @@
     You feel more energetic after spending time with a group of people.
     <form>
         <div class = "form-group">
-            <label for = "dropDownMenu"> Select an Option </label>
-            <select class = "form-control" id = "dropDownMenu">
+            <select class = "form-control" id = "q10">
+                <option value = "" disabled selected>Select an Option</option>
                 <option>1 (Strongly Disagree)</option>
                 <option>2</option>
                 <option>3</option>
@@ -182,13 +184,75 @@
         </div>
     </form>
 
-    <a href = "./home"><button class="btn btn-primary btn-lg btn-block"><span class="fa fa-ok-circle"></span> Submit</button></a>
+    <a href = "./home"><button class="btn btn-primary btn-lg btn-block" id = "submit"><span class="fa fa-check-circle"></span> Submit</button></a>
     
     <!-- Find out the address to the API friends list and fill in here. -->
     <hr>
-    <a href = " ">API Friends List</a> | 
+    <a href = "/api/friends">API Friends List</a> | 
     <a href = "https://github.com/mirandadasto/FriendFinder">GitHub Repo</a>
 </div>
+
+<!-- Modal Goes Here -->
+
+<script type = "text/javascript"></script>
+<script>
+
+    $("#submit").on("click", function(event)
+    {
+        event.preventDefault();
+
+        // Form validation
+        function validateForm()
+        {
+            var isValid = true;
+
+            $(".form-control").each(function()
+            {
+                if ($(this).val() === "")
+                {
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+
+        // If all required fields are filled
+        if (validateForm())
+        {
+            // Create an object for the user's data
+            var userData = {
+                name: $("name").val(),
+                photo: $("linkToPhoto").val,
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+
+            // AJAX post the data to the friends API
+            $.post("/api/friends", userData, function(data)
+            {
+                $("#match-name").text(data.name);
+                $("#math-img").attr("src", data.photo);
+
+                $("#results-modal").modal("toggle");
+            });
+        }
+        else
+        {
+            alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
+        }
+    });
+
+</script>
 </body>
 
 </html>

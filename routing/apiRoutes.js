@@ -4,7 +4,7 @@ function createRoutes(app)
 {
        app.get('/api/friends', function (request, response) 
     {
-        response.json(friends)
+        return response.json(friends)
     });
 
     app.post('/api/friends', function (request, response) 
