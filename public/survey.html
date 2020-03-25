@@ -25,11 +25,11 @@
         <form>
             <div class = "form-group">
                 <label for = "name">Name (Required)</label>
-                <input type = "name" class = "form-control" id = "name" placeholder = "Enter Name">
+                <input type = "text" class = "form-control" id = "name" placeholder = "Enter Name">
             </div>
             <div class = "form-group">
                 <label for = "link">Link to Photo Image (Required)</label>
-                <input type = "link" class = "form-control" id = "linkToPhoto" placeholder = "Paste a photo link here.">
+                <input type = "text" class = "form-control" id = "linkToPhoto" placeholder = "Paste a photo link here.">
             </div>
         </form>
     <hr>
@@ -217,7 +217,6 @@
 
 <script>
 
-$(document).ready(function() {
 // Capture the form inputs
     $("#submit").on("click", function(event)
     {
@@ -239,7 +238,7 @@ $(document).ready(function() {
         }
 
         // If all required fields are filled
-        if (validateForm() == true)
+        if (validateForm())
         {
             // Create an object for the user's data
             var userData = {
@@ -273,8 +272,6 @@ $(document).ready(function() {
             alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
         }
     });
-
-});
 
 </script>
 </body>

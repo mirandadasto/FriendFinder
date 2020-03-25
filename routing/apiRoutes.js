@@ -18,7 +18,7 @@ function createRoutes(app)
         var scoresArray = [];
         for (var i = 0; i < request.body.scores.length; i++)
         {
-            scoresArray.push(parseInt(req.body.scores[i]))
+            scoresArray.push(parseInt(request.body.scores[i]))
         };
         newFriend.scores = scoresArray;
 
@@ -34,7 +34,7 @@ function createRoutes(app)
         }
 
         var bestMatch = 0;
-        for (var i = 1; i < scoreComparisonArray.length; i++)
+        for (var i = 1; i < compareScoresArray.length; i++)
         {
             if(compareScoresArray[i] <= compareScoresArray[bestMatch])
             {
@@ -45,6 +45,7 @@ function createRoutes(app)
         var theBestestOfFriendsMatch = friends[bestMatch];
 
         response.json(theBestestOfFriendsMatch);
+        console.log("Success! Friend Added!");
 
         friends.push(newFriend);
     });
