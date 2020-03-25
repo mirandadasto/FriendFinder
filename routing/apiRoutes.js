@@ -9,9 +9,44 @@ function createRoutes(app)
 
     app.post('/api/friends', function (request, response) 
     {
-        const surveyResults = request.body;
-     
-        response.end();
+        var newFriend = {
+            name: request.body.name,
+            photo: request.body.photo,
+            scores: []
+        };
+
+        var scoresArray = [];
+        for (var i = 0; i < request.body.scores.length; i++)
+        {
+            scoresArray.push(parseInt(req.body.scores[i]))
+        };
+        newFriend.scores = scoresArray;
+
+        var compareScoresArray = [];
+        for (var i = 0; i < friends.length; i++)
+        {
+            var comparedScore = 0;
+            for (var m = 0; m < newFriend.scores.length; m++)
+            {
+                comparedScore += Math.abs(newFriend.scores[m] - friends[i].scores[m]);
+            }
+            compareScoresArray.push(comparedScore);
+        }
+
+        var bestMatch = 0;
+        for (var i = 1; i < scoreComparisonArray.length; i++)
+        {
+            if(compareScoresArray[i] <= compareScoresArray[bestMatch])
+            {
+                bestMatch = i;
+            }
+        }
+
+        var theBestestOfFriendsMatch = friends[bestMatch];
+
+        response.json(theBestestOfFriendsMatch);
+
+        friends.push(newFriend);
     });
 }
 

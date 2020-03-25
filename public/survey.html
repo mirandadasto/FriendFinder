@@ -212,9 +212,12 @@
     </div>
 </div>
 
-<script type = "text/javascript"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <script>
 
+$(document).ready(function() {
 // Capture the form inputs
     $("#submit").on("click", function(event)
     {
@@ -236,7 +239,7 @@
         }
 
         // If all required fields are filled
-        if (validateForm())
+        if (validateForm() == true)
         {
             // Create an object for the user's data
             var userData = {
@@ -270,6 +273,8 @@
             alert("Uh-oh! Looks like you missed a field, please fill that out before submitting.");
         }
     });
+
+});
 
 </script>
 </body>
